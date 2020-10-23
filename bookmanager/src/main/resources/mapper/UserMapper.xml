@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.bookmanager.mapper.UserMapper">
+
+    <insert id="register" parameterType="String">
+        insert into user(username,password,nickname,phonenumber) values (#{username},#{password},#{nickname},#{phonenumber})
+    </insert>
+    <select id="login" parameterType="String" resultType="com.example.bookmanager.model.vo.UserVO">
+        select id,username from user where username=#{username} and password=#{password}
+    </select>
+
+</mapper>
