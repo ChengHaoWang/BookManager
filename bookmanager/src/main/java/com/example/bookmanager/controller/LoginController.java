@@ -26,6 +26,10 @@ public class LoginController {
             //设置cookie
             Cookie cookieId=new Cookie("userId",userVO.getId());
             Cookie cookieName=new Cookie("userName",userVO.getUsername());
+            //设置cookie浏览器关闭后失效
+            cookieId.setMaxAge(-1);
+            cookieName.setMaxAge(-1);
+            //将cookie添加到response中
             response.addCookie(cookieId);
             response.addCookie(cookieName);
             //通过request方式传值前台只能获取一次

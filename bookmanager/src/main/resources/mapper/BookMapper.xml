@@ -5,5 +5,16 @@
     <insert id="addBook" parameterType="String" >
         insert into book(bookname,description,userid) values (#{bookName},#{description},#{userId})
     </insert>
-
+    <delete id="deleteBook" parameterType="String" >
+        delete from book where bookname=#{bookName} and userid=#{userId}
+    </delete>
+    <update id="updateBook" parameterType="String" >
+        update book set bookname=#{bookName},description=#{description} where id=#{bookId}
+    </update>
+    <select id="queryBook" parameterType="String" resultType="com.example.bookmanager.model.vo.BookVO">
+        select id,bookname,description from book where userid=#{userId}
+    </select>
+    <select id="queryBookByPage" parameterType="String" resultType="com.example.bookmanager.model.vo.BookVO">
+        select id,bookname,description from book where userid=#{userId}
+    </select>
 </mapper>
